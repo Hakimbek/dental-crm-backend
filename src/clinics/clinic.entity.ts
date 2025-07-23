@@ -1,12 +1,10 @@
-import { Entity, PrimaryGeneratedColumn } from 'typeorm';
-import { IsNotEmpty, IsString } from 'class-validator';
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity()
 export class Clinic {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
-    @IsString()
-    @IsNotEmpty()
+    @Column()
     name: string;
 }
