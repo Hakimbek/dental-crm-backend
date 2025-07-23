@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, UpdateDateColumn, CreateDateColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, UpdateDateColumn, CreateDateColumn, OneToMany } from 'typeorm';
+import { User } from '../user/user.entity';
 
 @Entity()
 export class Clinic {
@@ -13,6 +14,9 @@ export class Clinic {
 
     @Column()
     phone: string;
+
+    @OneToMany(() => User, (user) => user.clinic)
+    users: User[];
 
     @CreateDateColumn()
     createdAt: Date;
