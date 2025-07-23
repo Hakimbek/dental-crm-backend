@@ -50,15 +50,15 @@ export class AppointmentService {
     async update(id: string, dto: UpdateAppointmentDto) {
         const appointment = await this.findOne(id);
 
-        if (dto.dentistId) {
-            appointment.dentist = await this.dentistRepo.findOneByOrFail({ id: dto.dentistId });
-        }
+        // if (dto.dentistId) {
+        //     appointment.dentist = await this.dentistRepo.findOneByOrFail({ id: dto.dentistId });
+        // }
         // if (dto.clinicId) {
         //     appointment.clinic = await this.clinicRepo.findOneByOrFail({ id: dto.clinicId });
         // }
-        if (dto.patientId) {
-            appointment.patient = await this.patientRepo.findOneByOrFail({ id: dto.patientId });
-        }
+        // if (dto.patientId) {
+        //     appointment.patient = await this.patientRepo.findOneByOrFail({ id: dto.patientId });
+        // }
 
         Object.assign(appointment, dto);
         return this.appointmentRepo.save(appointment);

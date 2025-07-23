@@ -21,7 +21,7 @@ export class ClinicsController {
     }
 
     @Post()
-    createClinic(@Body() dto: ClinicDto): Promise<Clinic> {
+    create(@Body() dto: ClinicDto): Promise<Clinic> {
         return this.clinicsService.create(dto);
     }
 
@@ -44,7 +44,7 @@ export class ClinicsController {
 
     @Delete(':id')
     @HttpCode(HttpStatus.NO_CONTENT)
-    async remove(@Param('id', new ParseUUIDPipe()) id: string): Promise<void> {
+    async delete(@Param('id', new ParseUUIDPipe()) id: string): Promise<void> {
         await this.clinicsService.delete(id);
     }
 }
